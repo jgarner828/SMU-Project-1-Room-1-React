@@ -5,29 +5,31 @@ function ShirtForm() {
 
 
   const [shirt, setShirt] = useState({});
-  // id: 0, size: "", color:  "", description:"", price: 0, quantity: 0
+
   
 
-  function handleChange(event) {
-    const clone = { ...shirt };
-    clone[event.target.name] = event.target.value;
-    setShirt(clone);
-}
+    function handleChange(event) {
+        const clone = { ...shirt };
+        clone[event.target.name] = event.target.value;
+        setShirt(clone);
+    }
 
-function handleSubmit(e){
-    e.preventDefault();
 
-    const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(shirt)
-    };
+    function handleSubmit(e){
+        e.preventDefault();
 
-    fetch("http://localhost:8080/shirts", requestOptions)
-    .then(response => response.json())
-    .catch(error => console.error(error));
-    
-  }
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(shirt)
+        };
+
+        fetch("http://localhost:8080/shirts", requestOptions)
+        .then(response => response.json())
+        .catch(error => console.error(error));
+        
+        window.location.reload();
+    }
   
   return (
     <div className="addContainer">            

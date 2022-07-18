@@ -51,19 +51,19 @@ export default function ItemListContainer(props) {
             <table>
                     <tbody>
                         {
-                       consoleList.map(console => <ConsoleItem key = {console.id}  props= {console}/>)
+                       consoleList.map(console => <ConsoleItem key = {console}  props= {console}/>)
                         }
                     </tbody>
 
                     <tbody>
                         {
-                       gamesList.map(game => <GameItem key = {game.id}  props= {game}/>)
+                       gamesList.map(game => <GameItem key = {game}  props= {game}/>)
                         }
                     </tbody>
 
                     <tbody>
                         {
-                       tShirtList.map(shirt => <ShirtItem key = {shirt.id}  props= {shirt}/>)
+                       tShirtList.map(shirt => <ShirtItem key = {shirt}  props= {shirt}/>)
                         }
                     </tbody>
                           

@@ -26,6 +26,8 @@ function GameForm() {
     fetch("http://localhost:8080/games", requestOptions)
     .then(response => response.json())
     .catch(error => console.error(error));
+
+    window.location.reload();
     
   }
   
@@ -92,11 +94,3 @@ function GameForm() {
 }
 
 export default GameForm
-
-    // "gameId": 10,
-		// "title": "Halo",
-		// "esrbRating": 6,
-		// "description": "shoot aliens",
-		// "price": 29.99,
-		// "studio": "Halo studios",
-		// "quantity": 50

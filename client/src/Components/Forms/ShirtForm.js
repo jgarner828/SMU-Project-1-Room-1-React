@@ -26,6 +26,8 @@ function handleSubmit(e){
     fetch("http://localhost:8080/shirts", requestOptions)
     .then(response => response.json())
     .catch(error => console.error(error));
+
+    window.location.reload();
     
   }
   

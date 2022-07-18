@@ -17,6 +17,26 @@ export default function ListItem(props) {
   
       }
 
+    function handleDelete(target) {
+
+      target.preventDefault();
+
+      const requestOptions = {
+          method: 'DELETE',
+          headers: { 'Content-Type': 'application/json' },
+      };
+  
+      fetch("http://localhost:8080/consoles/" + target.target.id, requestOptions)
+      .then(response => response.json())
+      .catch(error => console.error(error));
+
+      window.location.reload();
+      
+    }
+
+
+
+
     return (
         <tr className="itemRow" key={props.consoleId} id={props.consoleId}>
             <th>Id: {props.props.consoleId}</th>
@@ -28,6 +48,7 @@ export default function ListItem(props) {
             
             </div>
             <button id ={props.props.consoleId} onClick={(target)=>createInvoice(target)}> Purchase </button>
+            <button id ={props.props.consoleId}  onClick={handleDelete}>Delete</button>
         </tr>
     )
 }

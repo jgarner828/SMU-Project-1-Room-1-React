@@ -27,6 +27,8 @@ function AddGameForm() {
     .then(response => response.json())
     .catch(error => console.error(error));
     
+    window.location.reload();
+    
   }
   
   return (

@@ -17,6 +17,24 @@ function ShirtItem(props) {
       console.log(target)
       setOrderQuantity(target.target.value)
 
+
+    }
+
+    function handleDelete(target) {
+
+      target.preventDefault();
+
+      const requestOptions = {
+          method: 'DELETE',
+          headers: { 'Content-Type': 'application/json' },
+      };
+  
+      fetch("http://localhost:8080/shirts/" + target.target.id, requestOptions)
+      .then(response => response.json())
+      .catch(error => console.error(error));
+
+      window.location.reload();
+      
     }
 
           return (
@@ -31,6 +49,7 @@ function ShirtItem(props) {
                 <input type="number" id="quantity" name="quantity" className="form-control" onChange={handleChange}   />
               </div>
               <button id ={props.props.id} onClick={(target)=>createInvoice(target)}>Purchase</button>
+              <button id ={props.props.id}  onClick={handleDelete}>Delete</button>
             </tr>
           )
 }

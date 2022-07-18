@@ -16,6 +16,22 @@ function GameItem({props}) {
 
   }
 
+  function handleDelete(target) {
+
+    target.preventDefault();
+
+    const requestOptions = {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+    };
+
+    fetch("http://localhost:8080/games/" + target.id, requestOptions)
+    .catch(error => console.error(error));
+    
+
+    window.location.reload();
+  }
+
   
 
   return (
@@ -29,6 +45,7 @@ function GameItem({props}) {
             <input type="number" id="quantity" name="quantity" className="form-control" onChange={handleChange}   />
         </div>
       <button id ={props.gameId} onClick={(target)=>createInvoice(target)}>Purchase</button>
+      <button id ={props.gameId}  onClick={handleDelete}>Delete</button>
   </tr>
     
   )
