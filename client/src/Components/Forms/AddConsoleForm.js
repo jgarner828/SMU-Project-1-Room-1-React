@@ -2,7 +2,7 @@ import React from 'react'
 
 import { useState } from 'react';
 
-function ConsoleForm() {
+function AddConsoleForm() {
  
   let [console, setConsole] = useState({});
   
@@ -17,7 +17,7 @@ function handleSubmit(e){
     e.preventDefault();
 
     const requestOptions = {
-        method: 'PUT',
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(console)
     };
@@ -29,17 +29,10 @@ function handleSubmit(e){
   }
 
   return (
-    <div className="consoleFormContainer">            
-      <h1>{console.consoleId > 0} Update Console</h1>
+    <div className="addContainer">            
+      <h1>Add Console</h1>
       
       <form onSubmit={handleSubmit}>
-        <div className="">
-            <label htmlFor="size">consoleId</label>
-            <input type="number" id="consoleId" name="consoleId"
-                className="form-control"
-                 onChange={handleChange}
-                 value= {console.consoleId} />
-        </div>
         <div className="">
             <label htmlFor="model">model</label>
             <input type="text" id="model" name="model"
@@ -55,7 +48,7 @@ function handleSubmit(e){
                  value= {console.manufacturer} />
         </div>
         <div className="">
-            <label htmlFor="memoryAmount">memoryAmount</label>
+            <label htmlFor="memoryAmount">memory Amount</label>
             <input type="text" id="memoryAmount" name="memoryAmount"
                 className="form-control"
                  onChange={handleChange}
@@ -70,7 +63,7 @@ function handleSubmit(e){
         </div>
         <div className="">
             <label htmlFor="price">price</label>
-            <input type="text" id="price" name="price"
+            <input type="number" id="price" name="price"
                 className="form-control"
                  onChange={handleChange}
                  value= {console.price} />
@@ -83,18 +76,10 @@ function handleSubmit(e){
                  value= {console.quantity} />
         </div>
         <div className="">
-            <button className="btn btn-primary" type="submit">Save</button>
+            <button className="btn btn-primary" type="submit" onClick={handleSubmit}>Save</button>
             <button className="btn btn-secondary" type="button" >Cancel</button>
         </div>
     </form></div>
   )
 }
-export default ConsoleForm
-
-//     "consoleId": 7,
-//     "model": "Nintendo 64",
-//     "manufacturer": "Nintendo",
-//     "memoryAmount": "64k",
-//     "processor": "Intel",
-//     "price": 175.00,
-//     "quantity": 50
+export default AddConsoleForm

@@ -1,14 +1,22 @@
 import React from 'react'
+import { useState } from 'react';
 
 function GameItem({props}) {
 
-
+  const [orderQuantity, setOrderQuantity] = useState(0);
 
   function createInvoice(target) {
-    
+
   }
 
 
+
+  function handleChange(target){
+    setOrderQuantity(target.target.value)
+
+  }
+
+  
 
   return (
   <tr className="itemRow" key={props.gameId} id={props.gameId}>
@@ -16,6 +24,10 @@ function GameItem({props}) {
       <th>{props.title}</th>
       <td>{props.price}</td>
       <td>{props.description}</td>
+      <div className="">
+            <label htmlFor="quantity">quantity</label>
+            <input type="number" id="quantity" name="quantity" className="form-control" onChange={handleChange}   />
+        </div>
       <button id ={props.gameId} onClick={(target)=>createInvoice(target)}>Purchase</button>
   </tr>
     

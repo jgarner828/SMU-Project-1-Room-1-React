@@ -39,6 +39,10 @@
   }
 }
 
+.addContainer {
+  outline: solid 3px red;
+}
+
 
 .formContainer{
   padding: 20%;
