@@ -9,9 +9,34 @@ function ShirtItem(props) {
 
 
 
-    function createInvoice(target) {
-      console.log(target.target.id)
+  function createInvoice(target) {
+    target.preventDefault();
+
+    let newInvoice = {
+      name: "Justin",
+      street: "Peachtree St",
+      city: "Atlanta",
+      state: "GA",
+      zipcode: "30050",
+      itemType: "T-Shirts",
+      itemId: props.props.itemId,
+      unitPrice: props.props.unitPrice,
+      quantity: orderQuantity
     }
+
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newInvoice)
+    };
+
+    fetch("http://localhost:8080/invoices", requestOptions)
+    .then(response => response.json())
+    .catch(error => console.error(error));
+
+    window.location.reload();
+    
+  }
 
     function handleChange(target){
       console.log(target)
@@ -37,8 +62,10 @@ function ShirtItem(props) {
       
     }
 
+
+
           return (
-            <tr className="itemRow" key={props.props.id} id = {props.props.id}>
+            <tr className="itemRow" id = {props.props.id}>
               <th>Id: {props.props.id}</th>
               <th>{props.props.size}</th>
               <td>{props.props.color}</td>

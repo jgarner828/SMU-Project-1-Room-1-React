@@ -5,10 +5,36 @@ function GameItem({props}) {
 
   const [orderQuantity, setOrderQuantity] = useState(0);
 
+
+
   function createInvoice(target) {
+    target.preventDefault();
 
+    let newInvoice = {
+      name: "Justin",
+      street: "Peachtree St",
+      city: "Atlanta",
+      state: "GA",
+      zipcode: "30050",
+      itemType: "Games",
+      itemId: props.gameId,
+      unitPrice: props.price,
+      quantity: orderQuantity
+    }
+
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newInvoice)
+    };
+
+    fetch("http://localhost:8080/invoices", requestOptions)
+    .then(response => response.json())
+    .catch(error => console.error(error));
+
+    window.location.reload();
+    
   }
-
 
 
   function handleChange(target){
@@ -25,7 +51,7 @@ function GameItem({props}) {
         headers: { 'Content-Type': 'application/json' },
     };
 
-    fetch("http://localhost:8080/games/" + target.id, requestOptions)
+    fetch("http://localhost:8080/invoices/" + target.id, requestOptions)
     .catch(error => console.error(error));
     
 
@@ -33,9 +59,8 @@ function GameItem({props}) {
   }
 
   
-
   return (
-  <tr className="itemRow" key={props.gameId} id={props.gameId}>
+  <tr className="itemRow" key={props.toString()} id={props.gameId}>
       <th>Id: {props.gameId}</th>
       <th>{props.title}</th>
       <td>{props.price}</td>

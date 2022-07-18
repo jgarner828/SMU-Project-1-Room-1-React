@@ -8,14 +8,39 @@ export default function ListItem(props) {
 
 
     function createInvoice(target) {
-        console.log(target.target.id)
+      target.preventDefault();
+  
+      let newInvoice = {
+        name: "Justin",
+        street: "Peachtree St",
+        city: "Atlanta",
+        state: "GA",
+        zipcode: "30050",
+        itemType: "Consoles",
+        itemId: props.props.consoleId,
+        unitPrice: props.props.price,
+        quantity: orderQuantity
       }
   
-      function handleChange(target){
+      const requestOptions = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(newInvoice)
+      };
+  
+      fetch("http://localhost:8080/invoices", requestOptions)
+      .then(response => response.json())
+      .catch(error => console.error(error));
+  
+      
+    }
+  
+
+    function handleChange(target){
         console.log(target)
         setOrderQuantity(target.target.value)
   
-      }
+    }
 
     function handleDelete(target) {
 
@@ -35,10 +60,8 @@ export default function ListItem(props) {
     }
 
 
-
-
     return (
-        <tr className="itemRow" key={props.consoleId} id={props.consoleId}>
+        <tr className="itemRow" key={props.props.consoleId} id={props.props.consoleId}>
             <th>Id: {props.props.consoleId}</th>
             <th>{props.props.manufacturer} {props.props.model}</th>
             <th>${props.props.price}</th>
