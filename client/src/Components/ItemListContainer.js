@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import ConsoleItem from './ConsoleItem';
 import GameItem from './GameItem';
 import ShirtItem from './ShirtItem';
+import '../App.css';
 
 
 
@@ -21,7 +22,7 @@ export default function ItemListContainer(props) {
           .then(response => response.json())
         //   .then(result => console.log(result))
           .then(response => setConsoleList(response))
-        .catch(console.log(consoleList));
+        .catch();
 
 
         // getting all T-Shirts
@@ -29,7 +30,7 @@ export default function ItemListContainer(props) {
           .then(response => response.json())
         //   .then(result => console.log(result))
           .then(response => setTShirtList(response))
-        .catch(console.log(consoleList));
+        .catch();
 
 
             // getting all games        
@@ -37,7 +38,7 @@ export default function ItemListContainer(props) {
           .then(response => response.json())
         //   .then(result => console.log(result))
           .then(response => setGamesList(response))
-        .catch(console.log(consoleList));
+        .catch();
 
 
 
@@ -47,25 +48,25 @@ export default function ItemListContainer(props) {
 
     if(consoleList && gamesList && tShirtList)
     return (
-            <>
-                    <ul>
+            <table>
+                    <tbody>
                         {
                        consoleList.map(console => <ConsoleItem key = {console.id}  props= {console}/>)
                         }
-                    </ul>
+                    </tbody>
 
-                    <ul>
+                    <tbody>
                         {
                        gamesList.map(game => <GameItem key = {game.id}  props= {game}/>)
                         }
-                    </ul>
+                    </tbody>
 
-                    <ul>
+                    <tbody>
                         {
                        tShirtList.map(shirt => <ShirtItem key = {shirt.id}  props= {shirt}/>)
                         }
-                    </ul>
-                           
-            </>
+                    </tbody>
+                          
+            </table>
          )
 }
