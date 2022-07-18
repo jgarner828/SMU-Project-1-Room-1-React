@@ -9,7 +9,7 @@ export default function ListItem(props) {
     }
 
     return (
-        <tr key={props.consoleId} id={props.consoleId}>
+        <tr className="itemRow" key={props.consoleId} id={props.consoleId}>
             <th>Id: {props.props.consoleId}</th>
             <th>{props.props.manufacturer} {props.props.model}</th>
             <th>${props.props.price}</th>

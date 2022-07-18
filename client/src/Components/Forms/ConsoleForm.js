@@ -29,7 +29,7 @@ function handleSubmit(e){
   }
 
   return (
-    <div>            
+    <div className="consoleFormContainer">            
       <h1>{console.consoleId > 0} Update Console</h1>
       
       <form onSubmit={handleSubmit}>

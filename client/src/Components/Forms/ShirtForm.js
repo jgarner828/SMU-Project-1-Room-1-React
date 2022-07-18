@@ -30,7 +30,7 @@ function handleSubmit(e){
   }
   
   return (
-    <div>            
+    <div className="shirtFormContainer">            
     <h1>{shirt.id > 0} Update Shirt</h1>
 
     <form onSubmit={handleSubmit}>

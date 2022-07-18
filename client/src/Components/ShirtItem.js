@@ -12,7 +12,7 @@ function ShirtItem(props) {
 
 
           return (
-            <tr key={props.props.id} id = {props.props.id}>
+            <tr className="itemRow" key={props.props.id} id = {props.props.id}>
               <th>Id: {props.props.id}</th>
               <th>{props.props.size}</th>
               <td>{props.props.color}</td>

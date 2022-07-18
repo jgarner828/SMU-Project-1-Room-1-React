@@ -1,6 +1,7 @@
 .App {
   text-align: center;
-  margin: 1rem;
+  margin: 0px;
+  padding: 0px;
 }
 
 .App-logo {
@@ -39,3 +40,31 @@
 }
 
 
+.formContainer{
+  padding: 20%;
+  margin: 0px;
+}
+
+.gameFormContainer {
+  padding: 1px;
+  margin: 1px;
+  outline: solid 4px blue;
+}
+
+.consoleFormContainer {
+  padding: 1px;
+  margin: 1px;
+  outline: solid 4px blue;
+}
+
+.shirtFormContainer {
+  padding: 1px;
+  margin: 1px;
+  outline: solid 4px blue;
+}
+
+.itemRow {
+  padding: 1px;
+  margin: 1px;
+  outline: solid 4px blue;
+}

@@ -30,7 +30,7 @@ function GameForm() {
   }
   
   return (
-    <div>            
+    <div className="gameFormContainer">            
       <h1>{game.gameId > 0} Update Game</h1>
       
       <form onSubmit={handleSubmit}>

@@ -11,7 +11,7 @@ function GameItem({props}) {
 
 
   return (
-  <tr key={props.gameId} id={props.gameId}>
+  <tr className="itemRow" key={props.gameId} id={props.gameId}>
       <th>Id: {props.gameId}</th>
       <th>{props.title}</th>
       <td>{props.price}</td>

@@ -4,8 +4,13 @@ import ShirtForm from './ShirtForm';
 import ConsoleForm from './ConsoleForm';
 
 function Forms() {
+
+
+
+
+
   return (
-      <div>
+      <div className="formContainer">
                 <GameForm className="gameForm"/>
                <ShirtForm className="shirtForm" />
               <ConsoleForm className="consoleForm" />
