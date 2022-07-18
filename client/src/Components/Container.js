@@ -5,7 +5,7 @@ export default function Container(props) {
 
     return (
         <div className="Container">
-            <p>This is inside container</p>
+            <h1>This is inside header container</h1>
         </div>
     )
 }

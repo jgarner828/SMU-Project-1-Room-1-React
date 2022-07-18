@@ -1,8 +1,7 @@
 
 * {
-  outline: solid red 2px;
-  margin: 0;
-  padding: 0;
+margin: 1rem;
+padding: 1rem;
 }
 
 
@@ -22,7 +21,7 @@ code {
 }
 
 
-.App, .Container {
+.App {
   min-width: 95vw;
   min-height: 100vh;
 }
