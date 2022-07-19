@@ -25,6 +25,8 @@ function handleSubmit(e){
     fetch("http://localhost:8080/consoles", requestOptions)
     .then(response => response.json())
     .catch(error => console.error(error));
+
+    window.location.reload();
     
   }
 

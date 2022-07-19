@@ -75,22 +75,3 @@ export default function ListItem(props) {
         </tr>
     )
 }
-
-// get and update values
-
-//     "consoleId": 7,
-//     "model": "Nintendo 64",
-//     "manufacturer": "Nintendo",
-//     "memoryAmount": "64k",
-//     "processor": "Intel",
-//     "price": 175.00,
-//     "quantity": 50
-
-// post values
-// "model": "XBox 360",
-// "manufacturer": "Microsoft",
-// "memoryAmount": "1TB",
-// "processor": "BillGates",
-// "price": 175.00,
-// "quantity": 50
-
