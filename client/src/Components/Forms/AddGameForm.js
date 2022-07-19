@@ -31,6 +31,7 @@ function AddGameForm() {
     
   }
   
+  
   return (
     <div className="addContainer">            
       <h1> Add Game</h1>
