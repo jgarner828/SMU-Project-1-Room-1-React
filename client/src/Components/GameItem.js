@@ -51,7 +51,7 @@ function GameItem({props}) {
         headers: { 'Content-Type': 'application/json' },
     };
 
-    fetch("http://localhost:8080/invoices/" + target.id, requestOptions)
+    fetch("http://localhost:8080/games/" + target.id, requestOptions)
     .catch(error => console.error(error));
     
 

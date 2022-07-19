@@ -24,13 +24,15 @@ function ShirtItem(props) {
       quantity: orderQuantity
     }
 
+
+    
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newInvoice)
     };
 
-    fetch("http://localhost:8080/invoices", requestOptions)
+    fetch("http://localhost:8080/shirts", requestOptions)
     .then(response => response.json())
     .catch(error => console.error(error));
 
